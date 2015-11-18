@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to Links!"
       session[:user_id] = @user.id
 
-      redirect_to user_path(@user)
+      redirect_to links_path
     else
       flash[:failure] = "There was a problem creating your account."
 
