@@ -33,7 +33,7 @@
       <tr>
         <th>Title</th>
         <th>Url</th>
-        <th>Status</th>
+        <th colspan='2'>Status</th>
       </tr>
     </thead>
     <tbody>
@@ -42,6 +42,9 @@
           <td><%= link.title %></td>
           <td><%= link.url %></td>
           <td><%= link_status(link) %></td>
+          <td>
+            <a class='update-status'>Mark as <%= link_action(link) %>
+          </td>
         </tr>
       <% end %>
     </tbody>
