@@ -1,24 +1,57 @@
-<h1>Links#index</h1>
-
-
-
-<%= link_to "Sign Up", new_user_path %>
-<br>
-<%= link_to "Login", new_session_path %>
-<br>
-<%= link_to "Logout", logout_path, method: :delete %>
-<br>
+<h1>Welcome to Links</h1>
 
 <% if current_user %>
+  <br>
+  <%= link_to "Logout", logout_path, method: :delete %>
+  <br>
+  <br>
+  <br>
+
+  <% if @link.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@link.errors.count, "error") %> prohibited this link from being saved:</h2>
+
+      <ul>
+        <% @link.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <%= form_for(@link) do |f| %>
     <%= f.label :title %>
     <%= f.text_field :title %>
     <%= f.label :url %>
-    <%= f.password_field :url %>
+    <%= f.text_field :url %>
 
     <%= f.submit "Add Link" %>
   <% end %>
-<% end %>
 
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Url</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @links.each do |link| %>
+        <tr>
+          <td><%= link.title %></td>
+          <td><%= link.url %></td>
+          <td><%= link_status(link) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<% else %>
+
+  <%= link_to "Sign Up", new_user_path %>
+  <br>
+  <%= link_to "Login", new_session_path %>
+  <br>
+<% end %>
 
