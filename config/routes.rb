@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create]
 
   delete '/logout', to: 'sessions#destroy'
+  post '/update-status', to: 'links#update_status'
 
   root 'links#index'
 

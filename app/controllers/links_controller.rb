@@ -3,7 +3,7 @@ class LinksController < ApplicationController
   def index
     @user = User.find_by(params[:id]) if current_user
     @link = Link.new
-    @links = @user.links
+    @links = @user.links if current_user
   end
 
   def create
@@ -19,7 +19,19 @@ class LinksController < ApplicationController
     end
   end
 
+  def update_status
+    link = current_user.links.find(params[:link][:id])
+
+    link.update(status: toggle_link_status(link))
+    redirect_to links_path
+  end
+
   private
+
+  def toggle_link_status(link)
+    return false if link.status
+    true
+  end
 
   def link_params
     params.require(:link).permit(:url, :title)

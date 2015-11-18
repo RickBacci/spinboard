@@ -36,14 +36,14 @@
         <th colspan='2'>Status</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody id='links-table'>
       <% @links.each do |link| %>
         <tr>
           <td><%= link.title %></td>
           <td><%= link.url %></td>
-          <td><%= link_status(link) %></td>
+          <td id="link-status-<%= link.id %>"><%= link_status(link) %></td>
           <td>
-            <a class='update-status'>Mark as <%= link_action(link) %>
+            <a href="#" data-id="<%= link.id %>" class="update-status-<%= link.id %>">Mark as <%= link_action(link) %>
           </td>
         </tr>
       <% end %>
