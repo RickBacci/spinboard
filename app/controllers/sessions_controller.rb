@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       redirect_to links_path
     else
       flash[:failure] = "There was a problem with your login"
-      render :back
+      redirect_to new_session_path
     end
   end
 
