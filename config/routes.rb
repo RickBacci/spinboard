@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :links, only: [:index]
   resources :sessions, only: [:new, :create]
 
+  delete '/logout', to: 'sessions#destroy'
+
   root 'links#index'
 
 end

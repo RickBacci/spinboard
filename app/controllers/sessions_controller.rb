@@ -3,18 +3,20 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(username: params[:session][:email])
+    user = User.find_by(email: params[:session][:email])
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
-      redirect_to user
+      flash[:success] = "Welcome to Links!"
+      redirect_to links_path
     else
-       # implement with test later
+      flash[:failure] = "There was a problem with your login"
+      render :back
     end
   end
 
   def destroy
     session.clear
-    redirect_to login_path
+    redirect_to links_path
   end
 end
 

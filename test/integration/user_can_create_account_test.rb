@@ -7,12 +7,12 @@ class UserCreatesAccountTest < ActionDispatch::IntegrationTest
 
     visit links_path
 
-    click_link "Register"
+    click_link "Sign Up"
     fill_in "Email", with: 'user@email.com'
     fill_in 'Password', with: 'password'
     fill_in 'Confirmation', with: 'password'
-    click_button "Create Account"
+    click_link_or_button "Create Account"
 
-    assert page.has_content?("Welcome, user@email.com!")
+    assert page.has_content?("user@email.com")
   end
 end
