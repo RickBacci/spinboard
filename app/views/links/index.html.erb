@@ -35,21 +35,29 @@
   <br>
   <br>
   <br>
-  <table class="table table-striped">
+
+  <table id='links' class="display table table-striped" cellspacing="0" width="75%">
     <thead>
       <tr>
         <th>Title</th>
         <th>Url</th>
-        <th colspan='3'>Status</th>
+        <th></th>
+        <th>Status</th>
+        <th></th>
       </tr>
     </thead>
     <tbody id='links-table'>
       <% @links.each do |link| %>
-        <tr class="table-row <%= link.status %>">
+        <tr class="link-row <%= link.status %>">
           <td>
-            <%= link.title %></td>
-          <td><%= link.url %></td>
-          <td id="link-status-<%= link.id %>"><%= link_status(link) %></td>
+            <%= link.title %>
+          </td>
+          <td>
+            <%= link.url %>
+          </td>
+          <td id="link-status-<%= link.id %>">
+            <%= link_status(link) %>
+          </td>
           <td>
             <a href="#" data-id="<%= link.id %>" class="status update-status-<%= link.id %>">Mark as <%= link_action(link) %></a>
           </td>

@@ -2,18 +2,18 @@ $(document).ready(function() {
 
   $('tr.true').css({ 'color': 'red' })
 
-  $('tr').on('click', function(event) {
+  $('tr.link-row').on('click', function(event) {
 
     if (event.target.innerText === "Edit") {
       return
     } else {
+
+      var buttonText = event.target.text;
+      var linkId = event.target.dataset.id;
+
       event.preventDefault();
+      updateStatus(buttonText, linkId);
     }
-
-    var buttonText = event.target.text;
-    var linkId = event.target.dataset.id;
-
-    updateStatus(buttonText, linkId);
 
     function updateStatus (buttonText, linkId) {
 
@@ -48,21 +48,12 @@ $(document).ready(function() {
     console.log('link clicked');
   });
 
-  // function updateIssueLabels() {
-  //
-  //   $.ajax({
-  //     type: "POST",
-  //
-  //     url: '/update_issue_labels',
-  //     data: { number: number },
-  //
-  //     success: function(post) {
-  //       // success need to change the label name
-  //     },
-  //     error: function(xhr) {
-  //       console.log(xhr.responseText)
-  //     }
-  //   })
-  // }
+  $('#links').DataTable( {
+    "order": [[ 3, "desc" ]]
+  } );
 
 });
+
+
+
+
