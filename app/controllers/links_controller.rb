@@ -1,9 +1,8 @@
 class LinksController < ApplicationController
 
   def index
-    @user = User.find_by(params[:id]) if current_user
     @link = Link.new
-    @links = @user.links if current_user
+    @links = current_user.links
   end
 
   def create
