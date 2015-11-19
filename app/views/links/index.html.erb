@@ -5,6 +5,8 @@
   <%= link_to "Logout", logout_path, method: :delete %>
   <br>
   <br>
+  <input id="searchInput" value="Filter links">
+  <br>
   <br>
 
   <% if @link.errors.any? %>
@@ -19,6 +21,8 @@
     </div>
   <% end %>
 
+  <br>
+  <br>
   <%= form_for(@link) do |f| %>
     <%= f.label :title %>
     <%= f.text_field :title %>
@@ -28,6 +32,9 @@
     <%= f.submit "Add Link" %>
   <% end %>
 
+  <br>
+  <br>
+  <br>
   <table class="table table-striped">
     <thead>
       <tr>
