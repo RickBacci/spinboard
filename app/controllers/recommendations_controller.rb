@@ -5,7 +5,7 @@ class RecommendationsController < ApplicationController
   end
 
   def create
-    RecommendationsMailer.notify_user(email_params).deliver_now
+    RecommendationsMailer.notify_user(email_params, params).deliver_now
 
     redirect_to :back, notice: "Your email was sent."
 
