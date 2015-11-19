@@ -4,7 +4,7 @@ $(document).ready(function() {
 
   $('tr.link-row').on('click', function(event) {
 
-    if (event.target.innerText === "Edit") {
+    if (event.target.innerText === "Edit" || event.target.innerText === "Recommend") {
       return
     } else {
 
