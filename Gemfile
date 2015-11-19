@@ -15,7 +15,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem "validate_url"
 gem 'selenium-webdriver'
 gem 'figaro'
-
+gem 'rails_12factor'
 
 # gem 'unicorn'
 
