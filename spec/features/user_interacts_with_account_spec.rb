@@ -31,7 +31,7 @@ RSpec.feature "User", type: :feature do
     expect(page).to_not have_link('Login')
   end
 
-  it 'can logout',js:true  do
+  it 'can logout' do
     User.create(email: 'user@email.com', password: 'password')
 
     visit links_path
