@@ -1,9 +1,11 @@
-<% form_tag('/recommendations', :method=>'post') do %>
- <p>
-   Email:<br />
-   <%= text_field_tag "Email" %>
- </p>
- <p>
-   <%= submit_tag 'Submit' %>
- </p>
-<% end %>
+
+<h1>Recommend a link</h1>
+
+
+<form action="/recommendations" method="post">
+  Email:<br>
+  <input type="text" name="email">
+  <br>
+  <br><br>
+  <input type="submit" value="Submit">
+</form>

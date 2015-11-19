@@ -1,6 +1,7 @@
 class RecommendationsController < ApplicationController
   def new
-
+    @user = User.find(params[:user_id])
+    @link = Link.find(params[:link_id])
   end
 
   def create

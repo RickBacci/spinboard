@@ -66,7 +66,7 @@
             <a href="/links/<%= link.id %>/edit" data-id="<%= link.id %>" class="edit-link-<%= link.id %>">Edit</a>
           </td>
           <td>
-            <a href="/recommendations/new" data-id="<%= link.id %>" class="recommend-link-<%= link.id %>">Recommend</a>
+            <%= link_to 'Recommend', {controller: "recommendations", action: "new", :link_id => link.id, :user_id=> session[:user_id]} %>
           </td>
         </tr>
       <% end %>
